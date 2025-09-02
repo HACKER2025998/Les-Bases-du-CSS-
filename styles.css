@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Aguafina+Script&display=swap');
+
+@font-face {
+    font-family: 'aguafina';
+    src: url('./assets/fonts/AguafinaScript-Regular.ttf');
+   
+}
+
+body{
+font-family: "aguafina", Verdana;
+letter-spacing: 6px;background-color: aliceblue;
+background :url('./assets/img/bg.jpg') /*no-repeat pour ne pas repeter*/ center/cover ;
+min-height: 100vh;
+}
+
+h1{
+text-transform: uppercase;
+letter-spacing: 3px;
+text-align: center;
+font-size: 2rem;
+text-shadow: 8px 8px 8px red;
+text-decoration: underline;
+color: rgb(254, 251, 251);
+font-family: "Aguafina Script", cursive;
+font-weight: 400;
+font-style: normal;
+}
+
+h2 {
+color: aliceblue;
+text-align:center ;
+margin: 0;
+}
+
+.services{
+    text-decoration: underline;
+    font-family: "Aguafina Script", cursive;
+    text-align: center;
+}
+li{
+    font-family: none;
+    color: aliceblue;
+}
+
+table {
+  border-spacing: 60px; /* espace horizontal ET vertical des deux td dans table */
+}
+
+
+main {
+    min-height: 350px;
+    min-width: 600px;
+    background-color: #e1dada35;
+
+    /* pour centrer la box main  */
+    /* deux valeur pour margin en haut en bas et a gauche a droit */
+    margin-top: 0;
+    margin-bottom: 0px;
+    margin-right: 95%;
+    margin-left: 5%;
+    /* pour la bordure , trois valeur, taille forme couleur */
+    border: 2px solid blue;
+    border-radius: 15px;
+    box-shadow: 6px 6px 8px rgb(72, 72, 212); 
+    margin: 15px;
+    padding-bottom: 20px;
+}
+
+section{
+    min-height: 350px;
+    min-width: 400px;
+    background-color: #e1dada35;
+
+    /* pour centrer la box main  */
+    /* deux valeur pour margin en haut en bas et a gauche a droit */
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 95%;
+    margin-left: 5%;
+    /* pour la bordure , trois valeur, taille forme couleur */
+    border: 2px solid blue;
+    border-radius: 15px;
+    box-shadow: 6px 6px 8px rgb(72, 72, 212); 
+    margin: 15px;
+}
+
+.flexbox,
+.grid ,
+.absolute {
+
+    border: 2px dashed blue;
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    min-height: 150px;  
+   
+}
+
+/* pour pointer exactement les ul dans notre flexbox on va use r le selecteur suivant */
+.flexbox ul {
+
+    padding: 0;
+    display: flex;
+    justify-content: place-around; /* pour espacer les li dans la flexbox */
+}
+
+/* pour pointer les li qui sont dans flexbox */
+.flexbox li{
+    list-style: none;  /*pour enlever la boule moches */
+    height: 160px;
+    width: 230px;
+    margin: 10px;
+    background: rgb(21, 22, 22);
+    padding: 10px;
+
+    /* pour centrer un seule enfant dans un parent , horizontalement et vevrticalement  */
+    display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+.grid img {
+  width: 80%;
+  display: block;
+}
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "in1 in2"
+    "ta ta"
+    "vi bt";
+}
+
+input, textarea {
+
+    margin: 5px;
+    border: 1px;
+    padding: 10px;
+    font-size: 1.1rem;
+    font-family: "DMSerif";
+    cursor: pointer;
+    background-color: blanchedalmond;
+    border-radius: 5pxi;
+}
+textarea{
+
+    grid-area: ta;
+    height: 40px;
+    resize: none;
+}
+#btn-submit {
+    grid-area: bt;
+     cursor: pointer; /* pour montrer q"un truc est cliclabe au survol */
+     background: cyan;
+     transition: 0.2s;
+}
+#btn-submit:hover {
+background: darkblue;
+color: aliceblue;
+
+}
+input:hover {
+background: cyan;
+color: #000 ;
+}
+.absolute{
+
+    position: relative;
+}
+/* absolute demo */
+
+#circle1 {
+    width: 80px;
+    height: 80px;
+    background: skyblue;
+    position: absolute;
+    border-radius: 160px;
+
+    /* maintenant pour le positionner on utilise top left right et bottom puis on ajuste */
+    top:0 ;
+    right: 0;
+    margin: 8px;
+}
+
+#circle2 {
+
+    height: 40px;
+    width: 40px;
+    border-radius: 150px;
+    background: teal;
+    position: absolute;
+     left: 50%;                           /* pour parfaitement centrer left et transform */
+    transform: translateX(-50%);
+}
+
+/* RESPONSIVE */
+
+@media screen  and (max-width : 900px) {
+    .grid-container {
+        display: block;
+    }
+    .grid-container img {
+        width: 60px;
+    }
+}
+
+@media screen  and (max-width : 610px) {
+
+    .flexbox ul {
+        flex-direction: column;
+    }
+ form {
+    grid-template-columns:1fr 1fr 1fr 1fr ;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "i1"
+    "i2"
+    "ta"
+    "bt"
+    ;
+ }
+
+}
